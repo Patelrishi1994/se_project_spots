@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__text {
+  background-color: inherit;
+  margin: auto;
+  font-size: 16px;
+  color: #212121b2;
+}
+
+.footer__text::after {
+  content: " \00a9  Spots";
+  margin: auto;
+}

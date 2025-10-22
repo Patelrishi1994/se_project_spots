@@ -1,0 +1,112 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 80px 20px 80px;
+  padding-bottom: 20px;
+  border-bottom: #21212166 1px solid;
+}
+
+.profile__avatar-section {
+  height: 190px;
+  max-width: 505px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.profile__image {
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-position: top;
+}
+
+.profile__avatar-section_column {
+  height: 190px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profile__avatar-section_text {
+  width: 420px;
+  margin: 0 0 18px 0;
+}
+
+.profile__name {
+  width: 100%;
+  max-height: 96px;
+  margin: 0 0 12px 0;
+  line-height: 100%;
+  font-weight: 500;
+  letter-spacing: 0%;
+}
+
+.profile__description {
+  width: 100%;
+  max-height: 48px;
+  margin: 0;
+  line-height: 100%;
+  font-weight: 500;
+  letter-spacing: 0%;
+  opacity: 0.7;
+}
+
+.profile__text {
+  color: #212121;
+  /* Following lines make text-overflow after 3rd line convert into ellipsis on different browsers. */
+  overflow: hidden;
+  /* clamp after 3rd line */
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  -moz-line-clamp: 3;
+  /* direction */
+  -moz-box-orient: vertical; /* Mozilla */
+  -webkit-box-orient: vertical; /* WebKit */
+  box-orient: vertical; /* As specified */
+  /* setting display */
+  display: -moz-box; /* Mozilla */
+  display: -webkit-box; /* WebKit */
+  display: box; /* As specified */
+}
+
+.profile__button {
+  padding: 0;
+}
+
+.profile__button_type_edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #212121;
+  opacity: 0.7;
+  border: none;
+}
+
+.profile__button_type_edit:hover {
+  opacity: 1;
+}
+
+.profile__button_type_add {
+  height: 52px;
+  min-width: 157px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: #212121;
+  border-radius: 8px;
+  color: #fcf5e5;
+}
+
+.profile__button_type_add:hover {
+  opacity: 0.8;
+}
