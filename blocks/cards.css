@@ -1,47 +1,55 @@
 .cards {
-  /* Grid container */
+  /* Responsive grid: each column will be between 288px and 413px.
+     auto-fit creates as many columns as fit the container width.
+     Using a max width and centering keeps the layout similar to the original
+     wide-screen look while remaining responsive on smaller screens. */
   display: grid;
-  grid-template-columns: repeat(3, 413px);
-  grid-template-rows: repeat(2, 445px);
-  grid-template-areas:
-    "card__1 card__2 card__3"
-    "card__4 card__5 card__6";
-  gap: 40px 20px;
-  /*  */
-  margin: 0 80px;
-  padding-bottom: 40px;
-  border-bottom: #21212166 1px solid;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 413px));
+  grid-auto-rows: auto;
+  gap: 0 20px;
 
-  /* white-space: nowrap; */
+  /* limit overall width to keep columns close to original layout on very wide screens */
+  max-width: 1400px;
+  justify-content: center;
+
+  border-bottom: #21212166 1px solid;
 }
 
+/* The card remains a vertical flex container */
 .card {
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
+/* Make image fluid while preserving 1:1 aspect ratio and cover behavior */
 .card__image {
-  width: 413px;
-  height: 413px;
+  width: 100%;
+  max-width: 413px; /* keeps the original max width */
   aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 8px;
   object-fit: cover;
   margin-bottom: 12px;
+  display: block;
 }
 
+/* Let text flow to the card width while keeping the same type scale */
 .card__text {
-  max-width: 353px;
+  max-width: 85%;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 120%;
   color: #212121;
   margin: 0;
-  /* overflow: hidden;
-  text-overflow: ellipsis; */
+  text-overflow: ellipsis; /* makes overflowed text end with ... */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
+/* Keep the button anchored to the card's bottom-right */
 .card__button {
   position: absolute;
   right: 0;
@@ -52,4 +60,49 @@
 
 .card__button:hover {
   opacity: 1;
+}
+
+@media screen and (min-width: 1320px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(408px, 413px));
+  }
+}
+
+@media screen and (min-width: 880px) and (max-width: 1320px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(403px, 408px));
+  }
+  .card {
+    margin-bottom: 30px;
+  }
+  .card__text {
+    font-size: 18px;
+    line-height: 110%;
+  }
+}
+
+@media screen and (min-width: 630px) and (max-width: 880px) {
+  .cards {
+    grid-template-columns: repeat(1, minmax(288px, 403px));
+  }
+  .card {
+    margin-bottom: 25px;
+  }
+  .card__text {
+    font-size: 17px;
+    line-height: 105%;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .cards {
+    grid-template-columns: repeat(1, 288px);
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+  .card__text {
+    font-size: 16px;
+    line-height: 100%;
+  }
 }
