@@ -53,7 +53,7 @@ This project is to create a website where people can share their stories in form
 
 ## Project Link
 
--
+- https://patelrishi1994.github.io/se_project_spots/index.html
 
 ## Project Pitch
 
